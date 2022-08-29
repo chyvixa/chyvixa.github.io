@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Diya - Ukraine!</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/logo.png" />
+</head>
+<body>
+<script>
+</script>
+<div class="container">
+    <div class="pass-cont">
+        <div class="up-menu">
+            <img src="assets/logo.png" onclick="window.open('https://diia.gov.ua/faq', '_blank').focus();" alt="Diya" id="logo">
+            <img src="assets/min-qr.png" alt="mini-qr" id="mini-qr">
+        </div>
+        <div id="pass">
+            <img src="assets/passport.png" id="password_img" alt="passport">
+            <img src="assets/qr-passport.png" id="qr" alt="qr">
+        </div>
+        <p id="date">
+
+        </p>
+        <div class="down-menu">
+            <div class="doc">
+                <img src="assets/document.png" onclick="window.open('https://diia.gov.ua/faq', '_blank').focus();" alt="doc">
+                <p>Документи</p>
+            </div>
+            <div class="ser">
+                <img src="assets/service.png" onclick="window.open('https://diia.gov.ua/faq', '_blank').focus();" alt="serv">
+                <p>Послуги</p>
+            </div>
+            <div class="not">
+                <img src="assets/notif.png" onclick="window.open('https://diia.gov.ua/faq', '_blank').focus();" alt="notif">
+                <p>Повiдомлення</p>
+            </div>
+            <div class="menu">
+                <img src="assets/menu.png" onclick="window.open('https://diia.gov.ua/faq', '_blank').focus();" alt="menu">
+                <p>Меню</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const setDate = document.getElementById('date');
+    const d = new Date();
+    const day = d.getDate();
+    const month = d.getMonth();
+    const year = d.getFullYear();
+    const hours = d.getHours();
+    let minute = d.getMinutes();
+    if (minute.toString().length === 1) {
+        minute = '0'+minute;
+    }
+    setDate.innerHTML = `Данi оновлено ${day}.0${month+1}.${year} о ${hours}:${minute}`;
+    const ID = document.getElementById('password_img');
+    const QR = document.getElementById('qr');
+    ID.addEventListener('click', ()=>{
+        ID.style.transform = 'rotate3d(0, 1, 0, -90deg)';
+        setTimeout(()=>{QR.style.transform = 'rotate3d(0, 1, 0, 0deg)';}, 400);
+    })
+    QR.addEventListener('click', ()=>{
+        QR.style.transform = 'rotate3d(0, 1, 0, -90deg)';
+        setTimeout(()=>{ID.style.transform = 'rotate3d(0, 1, 0, 0deg)';}, 450);
+    })
+</script>
+</body>
+</html>
